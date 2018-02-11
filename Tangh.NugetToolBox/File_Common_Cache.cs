@@ -7,12 +7,25 @@ using System.Text;
 
 namespace Tangh.NugetToolBox
 {
+    /// <summary>
+    /// 文件缓存共有类
+    /// </summary>
+    /// <typeparam name="T">类</typeparam>
     public class File_Common_Cache<T> where T : new()
     {
-        private static readonly string SEP_STR = "---";
+        /// <summary>
+        /// 缓存分隔符
+        /// </summary>
+        private static string SEP_STR = "---";
 
+        /// <summary>
+        /// 缓存临时对象集合
+        /// </summary>
         private static List<T> dataList = new List<T>();
 
+        /// <summary>
+        /// 缓存文本路径
+        /// </summary>
         private static string cachePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cache", typeof(T).Name.ToString() + ".txt");
 
         static File_Common_Cache()
@@ -80,6 +93,21 @@ namespace Tangh.NugetToolBox
             }
         }
 
+        /// <summary>
+        /// 初始化配置（修改默认分割和保存文件使用）
+        /// </summary>
+        /// <param name="sep_str">分隔符</param>
+        /// <param name="fileName">缓存文件名</param>
+        public static void InitSet(string sep_str, string fileName)
+        {
+            SEP_STR = sep_str;
+            cachePath = fileName;
+        }
+
+        /// <summary>
+        /// 新增一个缓存
+        /// </summary>
+        /// <param name="t"></param>
         public static void Add(T t)
         {
             lock (dataList)
@@ -90,11 +118,19 @@ namespace Tangh.NugetToolBox
             }
         }
 
+        /// <summary>
+        /// 移除一个缓存
+        /// </summary>
+        /// <param name="t"></param>
         public static void Remove(T t)
         {
 
         }
 
+        /// <summary>
+        /// 读取缓存集合
+        /// </summary>
+        /// <returns></returns>
         public static List<T> GetAll()
         {
             lock (dataList)
@@ -103,6 +139,9 @@ namespace Tangh.NugetToolBox
             }
         }
 
+        /// <summary>
+        /// 写入缓存文件(全量）
+        /// </summary>
         private static void WriteFile()
         {
             StringBuilder content = new StringBuilder();
@@ -139,6 +178,10 @@ namespace Tangh.NugetToolBox
             File.WriteAllText(cachePath, content.ToString(), Encoding.UTF8);
         }
 
+        /// <summary>
+        /// 写入缓存文件（附加)
+        /// </summary>
+        /// <param name="t"></param>
         private static void AppendFile(T t)
         {
             StringBuilder content = new StringBuilder();
