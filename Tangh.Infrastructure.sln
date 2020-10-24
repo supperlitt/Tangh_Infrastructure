@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tangh.NugetToolBox", "Tangh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConTest", "ConTest\ConTest.csproj", "{D1FAD14B-41DD-44FC-AEE5-EB7B16189EAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Update", "Update\Update.csproj", "{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,16 @@ Global
 		{D1FAD14B-41DD-44FC-AEE5-EB7B16189EAC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D1FAD14B-41DD-44FC-AEE5-EB7B16189EAC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D1FAD14B-41DD-44FC-AEE5-EB7B16189EAC}.Release|x86.ActiveCfg = Release|Any CPU
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Debug|x86.ActiveCfg = Debug|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Debug|x86.Build.0 = Debug|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Release|Any CPU.ActiveCfg = Release|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Release|Mixed Platforms.Build.0 = Release|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Release|x86.ActiveCfg = Release|x86
+		{AF8E4103-38D5-44C9-BEDC-86E20C9231EB}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

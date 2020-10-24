@@ -8,8 +8,8 @@
     <ProjectGuid>{B5143DB4-A2AB-4426-AEF0-10CAFFE350C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YiLe.Infrastructure</RootNamespace>
-    <AssemblyName>YiLe.Infrastructure</AssemblyName>
+    <RootNamespace>Tangh.Infrastructure</RootNamespace>
+    <AssemblyName>Tangh.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

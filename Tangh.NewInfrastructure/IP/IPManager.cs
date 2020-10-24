@@ -6,11 +6,14 @@ using System.Management;
 using System.Net;
 using System.Text.RegularExpressions;
 using Tangh.NewInfrastructure.Http;
+using System.Web.Script.Serialization;
 
 namespace Tangh.NewInfrastructure.IP
 {
     public class IPManager
     {
+        private static JavaScriptSerializer js = new JavaScriptSerializer();
+
         /// <summary>
         /// 获取局域网IP地址,如果计算机配置了公网IP，可能得到公网的IP
         /// </summary>
@@ -68,5 +71,47 @@ namespace Tangh.NewInfrastructure.IP
                 addr = string.Empty;
             }
         }
+
+        public static string GetOutIP2()
+        {
+            string ip = string.Empty;
+            try
+            {
+                using (TMWebClient client = new TMWebClient())
+                {
+                    client.Encoding = Encoding.UTF8;
+
+                    // 110.187.172.250中国-达州-电信
+                    // {"data":{"area":"","country":"中国","isp_id":"100017","queryIp":"110.187.172.250","city":"达州","ip":"110.187.172.250","isp":"电信","county":"","region_id":"510000","area_id":"","county_id":null,"region":"四川","country_id":"CN","city_id":"511700"},"msg":"query success","code":0}
+                    string result = client.DownloadString("http://ip.taobao.com/outGetIpInfo?ip=myip&accessKey=alibaba-inc");
+                    var info = js.Deserialize<OutIpInfo>(result);
+
+                    return info.data.ip + info.data.country + "-" + info.data.city + "-" + info.data.isp;
+                }
+            }
+            catch
+            {
+                return "未找到";
+            }
+        }
+    }
+    public class OutIpInfo
+    {
+        public int code { get; set; }
+
+        public string msg { get; set; }
+
+        public OutIpDetailInfo data { get; set; }
+    }
+
+    public class OutIpDetailInfo
+    {
+        public string ip { get; set; }
+
+        public string country { get; set; }
+
+        public string city { get; set; }
+
+        public string isp { get; set; }
     }
 }

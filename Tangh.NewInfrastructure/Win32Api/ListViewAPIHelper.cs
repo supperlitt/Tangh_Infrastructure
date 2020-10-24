@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace YiLe.NewInfrastructure.Win32Api
+namespace Tangh.NewInfrastructure.Win32Api
 {
     public class ListViewAPIHelper : WindowsAPIHelper
     {

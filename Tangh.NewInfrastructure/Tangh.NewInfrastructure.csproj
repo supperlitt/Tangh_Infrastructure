@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -8,10 +8,11 @@
     <ProjectGuid>{B311CD11-B61C-45F2-823F-577BE7D36142}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YiLe.NewInfrastructure</RootNamespace>
-    <AssemblyName>YiLe.NewInfrastructure</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>Tangh.NewInfrastructure</RootNamespace>
+    <AssemblyName>Tangh.NewInfrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,7 +31,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\YiLe.NewInfrastructure.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Tangh.NewInfrastructure.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
@@ -39,6 +42,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
@@ -58,21 +62,25 @@
     <Compile Include="Control\TMWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DataBase\FileDbHelper.cs" />
     <Compile Include="Encrypt\AESHelper.cs" />
     <Compile Include="Email\Email163.cs" />
     <Compile Include="Email\EMailHttpHelper.cs" />
     <Compile Include="Email\SmtpHelper.cs" />
+    <Compile Include="Files\GodDir.cs" />
     <Compile Include="Files\IniFiles.cs" />
     <Compile Include="HttpWatch\HttpWatch.cs" />
     <Compile Include="HttpWatch\IPHeader.cs" />
     <Compile Include="HttpWatch\PkFunction.cs" />
     <Compile Include="HttpWatch\TCPHeader.cs" />
     <Compile Include="HttpWatch\UDPHeader.cs" />
+    <Compile Include="Http\HttpClientHelper.cs" />
     <Compile Include="Http\HttpHelper.cs" />
     <Compile Include="Http\JsTool.cs" />
     <Compile Include="Http\TMWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Images\CreateImage.cs" />
     <Compile Include="Images\ImageManager.cs" />
     <Compile Include="Images\LockBitmap.cs" />
     <Compile Include="IMEI\IMEITool.cs" />
@@ -94,6 +102,9 @@
     <Compile Include="Sql\MySqlHelper.cs" />
     <Compile Include="Sql\SqlHelper.cs" />
     <Compile Include="Times\TimeHelper.cs" />
+    <Compile Include="Tool\HexUtil.cs" />
+    <Compile Include="Tool\KeyGenerator.cs" />
+    <Compile Include="Tool\ProcessTool.cs" />
     <Compile Include="VPN\VPNHelper.cs" />
     <Compile Include="Win32Api\ListViewAPIHelper.cs" />
     <Compile Include="Win32Api\Win32Helper.cs" />
