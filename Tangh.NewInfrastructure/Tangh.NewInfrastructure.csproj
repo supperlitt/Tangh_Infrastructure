@@ -108,6 +108,7 @@
     <Compile Include="VPN\VPNHelper.cs" />
     <Compile Include="Win32Api\ListViewAPIHelper.cs" />
     <Compile Include="Win32Api\Win32Helper.cs" />
+    <Compile Include="Win32Api\Win32Helper2.cs" />
     <Compile Include="Win32Api\WindowsAPIHelper.cs" />
   </ItemGroup>
   <ItemGroup />
