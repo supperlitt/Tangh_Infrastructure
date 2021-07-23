@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NugetTool", "NugetTool", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupperlittTool", "SupperlittTool\SupperlittTool.csproj", "{27E9E4FF-F3F5-4A85-83FB-0FDA4C2480A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupperlittToolCore", "SupperlittToolCore\SupperlittToolCore.csproj", "{EFC32680-1327-440B-9C8C-6A7F3D71947D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupperlittToolCore", "SupperlittToolCore\SupperlittToolCore.csproj", "{EFC32680-1327-440B-9C8C-6A7F3D71947D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConNugetTest", "ConNugetTest\ConNugetTest.csproj", "{499E7A58-B584-4915-A597-7E70DC4A8E61}"
 EndProject

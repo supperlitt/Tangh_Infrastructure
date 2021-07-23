@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>SupperlittTool</id>
+    <version>1.0</version>
+    <title>SupperlittTool</title>
+    <authors>supperlitt</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/supperlitt/Tangh_Infrastructure</projectUrl>
+    <iconUrl>https://avatars.githubusercontent.com/u/4100918</iconUrl>
+    <description>工具集合</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>2021</copyright>
+    <tags>Supperlitt Infrastructure</tags>
+	<dependencies>
+		<group targetFramework="net452" />
+	</dependencies>
+  </metadata>
+</package>
