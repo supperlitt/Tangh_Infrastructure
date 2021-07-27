@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\CacheHelper.cs" />
+    <Compile Include="Data\EnumHelper.cs" />
     <Compile Include="Data\FileDbHelper.cs" />
     <Compile Include="File\ExcelHelper.cs" />
     <Compile Include="File\EnvironmentDir.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Security\JsTool.cs" />
     <Compile Include="Security\RSANewHelper.cs" />
     <Compile Include="Tool\Logs.cs" />
+    <Compile Include="Tool\StaticExtend.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filter\" />

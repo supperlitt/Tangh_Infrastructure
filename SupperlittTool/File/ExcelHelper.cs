@@ -20,6 +20,10 @@ namespace SupperlittTool
         private FileStream fs = null;
         private bool disposed;
 
+        /// <summary>
+        /// 初始化Excel，创建和打开
+        /// </summary>
+        /// <param name="fileName"></param>
         public ExcelHelper(string fileName)
         {
             this.fileName = fileName;
@@ -80,6 +84,7 @@ namespace SupperlittTool
                     }
                     ++count;
                 }
+
                 workbook.Write(fs); //写入到excel
                 return count;
             }
@@ -164,12 +169,19 @@ namespace SupperlittTool
             }
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)

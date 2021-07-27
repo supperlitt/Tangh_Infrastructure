@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Web.Script.Serialization;
 
-namespace Tangh.NewInfrastructure
+namespace SupperlittTool
 {
     /// <summary>
     /// 文件系统数据库
