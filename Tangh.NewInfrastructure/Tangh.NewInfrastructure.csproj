@@ -75,6 +75,7 @@
     <Compile Include="HttpWatch\TCPHeader.cs" />
     <Compile Include="HttpWatch\UDPHeader.cs" />
     <Compile Include="Http\HttpClientHelper.cs" />
+    <Compile Include="Http\HttpClientHelper2.cs" />
     <Compile Include="Http\HttpHelper.cs" />
     <Compile Include="Http\JsTool.cs" />
     <Compile Include="Http\TMWebClient.cs">
