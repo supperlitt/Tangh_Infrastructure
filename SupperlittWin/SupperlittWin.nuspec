@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>SupperlittWin</id>
+    <version>1.0</version>
+    <title>SupperlittWin</title>
+    <authors>Supperlitt</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/supperlitt/Tangh_Infrastructure</projectUrl>
+    <iconUrl>https://avatars.githubusercontent.com/u/4100918</iconUrl>
+    <description>Window Framework 工具集合</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>2021</copyright>
+    <tags>Supperlitt Infrastructure</tags>
+	<dependencies>
+		<group targetFramework="net4.0" />
+	</dependencies>
+  </metadata>
+</package>
