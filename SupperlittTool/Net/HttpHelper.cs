@@ -9,6 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using System.Collections.Specialized;
 using System.IO.Compression;
+using System.Linq;
 
 namespace SupperlittTool
 {
@@ -21,6 +22,10 @@ namespace SupperlittTool
         private static string userAgent = string.Empty;
 
         private CookieContainer cc;
+
+        /// <summary>
+        /// 返回响应的Header
+        /// </summary>
         public WebHeaderCollection response_header = null;
         private List<string> agentList = new List<string>();
 
@@ -36,6 +41,9 @@ namespace SupperlittTool
             }
         }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public HttpHelper()
         {
             Random rand = new Random(DateTime.Now.Millisecond);
@@ -43,6 +51,10 @@ namespace SupperlittTool
             this.cc = new CookieContainer();
         }
 
+        /// <summary>
+        /// 通过cookie初始化
+        /// </summary>
+        /// <param name="cc"></param>
         public HttpHelper(CookieContainer cc)
         {
             userAgent = UserAgent();
@@ -241,11 +253,7 @@ namespace SupperlittTool
             //获取网页响应结果
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             cc.Add(response.Cookies);
-            if (allowAutoRedirect && response.StatusCode == HttpStatusCode.Found)
-            {
-                targetURL = response.Headers["Location"];
-                return GetAndGetStream(targetURL, contentType, referer, allowAutoRedirect);
-            }
+            response_header = response.Headers;
 
             Stream stream = response.GetResponseStream();
             return stream;
@@ -424,16 +432,21 @@ namespace SupperlittTool
             //获取网页响应结果
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             cc.Add(response.Cookies);
-            if (allowAutoRedirect && response.StatusCode == HttpStatusCode.Found)
-            {
-                targetURL = response.Headers["Location"];
-                return GetAndGetStream(targetURL, contentType, referer, allowAutoRedirect);
-            }
+            response_header = response.Headers;
 
             Stream stream = response.GetResponseStream();
             return stream;
         }
 
+        /// <summary>
+        /// head请求
+        /// </summary>
+        /// <param name="targetURL"></param>
+        /// <param name="contentType"></param>
+        /// <param name="referer"></param>
+        /// <param name="allowAutoRedirect"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         public string HeadAndGetHtml(string targetURL, string contentType, string referer, bool allowAutoRedirect, Encoding encoding)
         {
             Stream stream = HeadAndGetStream(targetURL, contentType, referer, allowAutoRedirect);
@@ -441,6 +454,12 @@ namespace SupperlittTool
             return ReadStream(stream, encoding);
         }
 
+        /// <summary>
+        /// 带gzip解密的流转字符串
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         private string ReadStream(Stream stream, Encoding encoding)
         {
             BinaryReader br = new BinaryReader(stream);
@@ -490,9 +509,10 @@ namespace SupperlittTool
         {
             // list.Add("Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; SV1; .NET CLR 2.0.1124)");
             // list.Add("Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)");
-            agentList.Add("Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727)");
+            // agentList.Add("Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727)");
             // agentList.Add("ChinaMobile/7.1.0 (iPhone; iOS 9.2.1; Scale/2.00)");
             // list.Add("ChinaUnicom4.x/1000 CFNetwork/758.2.8 Darwin/15.0.0");
+            agentList.Add("Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36");
             return agentList[rand.Next(0, agentList.Count)];
         }
 
@@ -523,7 +543,7 @@ namespace SupperlittTool
                         CC.Add(new Cookie()
                         {
                             Name = itemArray[0],
-                            Value = itemArray[1],
+                            Value = itemArray[1].Replace(",", "%2C"),
                             Domain = domain,
                             Expires = DateTime.Now.AddDays(30)
                         });
